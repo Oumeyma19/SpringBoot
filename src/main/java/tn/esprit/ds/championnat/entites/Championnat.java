@@ -2,6 +2,8 @@ package tn.esprit.ds.championnat.entites;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Championnat {
 
@@ -18,4 +20,9 @@ public class Championnat {
 
     @OneToOne(mappedBy = "championnat")
     private DetailChampionnat detailChampionnat;
+
+    @ManyToMany
+    private List<Course> courses;
+
+
 }

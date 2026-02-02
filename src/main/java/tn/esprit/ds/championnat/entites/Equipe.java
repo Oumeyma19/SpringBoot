@@ -2,6 +2,8 @@ package tn.esprit.ds.championnat.entites;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Equipe {
     @Id
@@ -11,6 +13,12 @@ public class Equipe {
     private String libelle;
     private Integer nbPointsTotal;
     private Integer classementGeneral;
+
+    @OneToMany(mappedBy = "equipe")
+    private List<Pilote> pilotes;
+
+    @OneToMany(mappedBy = "equipe")
+    private List<Contrat> contrats;
 
 
 }

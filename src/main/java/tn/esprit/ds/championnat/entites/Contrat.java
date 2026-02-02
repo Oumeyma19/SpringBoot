@@ -12,5 +12,11 @@ public class Contrat {
     private String annee;
     private Boolean archived;
 
+    @ManyToOne
+    private Equipe equipe;
+
+    @ManyToOne
+    private Sponsor sponsor;
+
 
 }

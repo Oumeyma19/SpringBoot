@@ -11,5 +11,11 @@ public class Position {
     private Integer classement;
     private Integer nbPoints;
 
+    @ManyToOne
+    private Course course;
+
+    @ManyToOne
+    private Pilote pilote;
+
 
 }
