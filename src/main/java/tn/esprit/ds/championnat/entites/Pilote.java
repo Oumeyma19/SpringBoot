@@ -18,6 +18,9 @@ public class Pilote {
     private Integer nbPointsTotal;
     private Integer classementGeneral;
 
+    @Enumerated(EnumType.STRING) // Ajoute ceci pour la catégorie
+    private Categorie categorie;
+
     @OneToMany(mappedBy = "pilote")
     private List<Position> positions;
 

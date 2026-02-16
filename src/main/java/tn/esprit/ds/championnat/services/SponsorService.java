@@ -1,10 +1,14 @@
 package tn.esprit.ds.championnat.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.ds.championnat.entites.Sponsor;
 import tn.esprit.ds.championnat.repositories.SponsorRepository;
 
 import java.util.List;
 
+@Service // <--- Obligatoire pour corriger l'erreur de Postman
+@AllArgsConstructor
 public class SponsorService implements ISponsorService{
 
     private SponsorRepository sponsorRepository;

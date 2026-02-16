@@ -9,14 +9,13 @@ public class Championnat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idChampionnat; // ID du championnat
-
-    private String code; // Code du championnat
-
-    private String description; // Description du championnat
+    private Long idChampionnat;
 
     @Enumerated(EnumType.STRING)
     private Categorie categorie;
+
+    private String libelleC; // Présent sur le diagramme
+    private Integer annee;   // Présent sur le diagramme
 
     @OneToOne(mappedBy = "championnat")
     private DetailChampionnat detailChampionnat;
