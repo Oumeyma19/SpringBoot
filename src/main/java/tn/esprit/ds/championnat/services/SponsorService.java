@@ -17,7 +17,8 @@ public class SponsorService implements ISponsorService{
     @Override
     public Sponsor ajouterSponsor(Sponsor sponsor) {
         // Initialisation automatique des champs demandés
-        sponsor.setDateCreation(java.time.LocalDate.now()); // Date système
+        sponsor.setDateCreation(java.time.LocalDate.now());
+        sponsor.setDateDerniereModification(java.time.LocalDate.now());// Date système
         sponsor.setArchived(false); // Initialisé à false
         sponsor.setBloquerContrat(false); // Initialisé à false
 
