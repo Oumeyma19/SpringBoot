@@ -1,8 +1,17 @@
 package tn.esprit.ds.championnat.entites;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Contrat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,10 +22,10 @@ public class Contrat {
     private Boolean archived;
 
     @ManyToOne
-    private Equipe equipe;
+    private Equipe equipes;
 
     @ManyToOne
-    private Sponsor sponsor;
+    private Sponsor sponsors;
 
 
 }

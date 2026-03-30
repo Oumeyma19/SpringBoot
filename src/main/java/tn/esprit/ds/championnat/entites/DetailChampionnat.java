@@ -1,8 +1,17 @@
 package tn.esprit.ds.championnat.entites;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class DetailChampionnat {
 
     @Id
@@ -12,7 +21,7 @@ public class DetailChampionnat {
     private String code; // Code du détail du championnat
     private String description; // Description du détail du championnat
 
-    @OneToOne
+    @OneToOne(mappedBy = "detailChampionnat")
     private Championnat championnat; // Lien One-to-One avec Championnat
 
 }

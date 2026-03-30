@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import tn.esprit.ds.championnat.entites.Equipe;
 import tn.esprit.ds.championnat.entites.Pilote;
+import tn.esprit.ds.championnat.repositories.EquipeRepository;
+import tn.esprit.ds.championnat.repositories.PiloteRepository;
 import tn.esprit.ds.championnat.services.IPiloteService;
 
 @RestController
@@ -18,5 +21,14 @@ public class PiloteController {
     @PostMapping("/add")
     public String addPilote(@RequestBody Pilote p) {
         return piloteService.addPilote(p);
+    }
+
+    PiloteRepository PiRep;
+    EquipeRepository EqRep;
+    public Pilote affecterPiloteAequipe(String libP, String libEq){
+        Pilote p= PiRep.finfBylibPi(libP);
+        Equipe e= EqRep.finfBylibEq(libEq);
+        p.setEquipes(e);
+        return PiRep.save(p);
     }
 }

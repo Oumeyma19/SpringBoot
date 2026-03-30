@@ -23,6 +23,22 @@ public class Sponsor {
     private LocalDate dateCreation;
     private LocalDate dateDerniereModification;
 
-    @OneToMany(mappedBy = "sponsor")
+    @OneToMany(mappedBy = "sponsor" , cascade = CascadeType.ALL)
     private List<Contrat> contrats;
+
+    public void setDateCreation(LocalDate now) {
+        this.dateCreation = now;
+    }
+
+    public void setArchived(boolean b) {
+        this.archived = b;
+    }
+
+    public void setBloquerContrat(boolean b) {
+        this.bloquerContrat = b;
+    }
+
+    public void setDateDerniereModification(LocalDate now) {
+        this.dateDerniereModification = now;
+    }
 }

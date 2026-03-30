@@ -1,8 +1,17 @@
 package tn.esprit.ds.championnat.entites;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,10 +21,10 @@ public class Position {
     private Integer nbPoints;
 
     @ManyToOne
-    private Course course;
+    private Course courses;
 
     @ManyToOne
-    private Pilote pilote;
+    private Pilote pilotes;
 
 
 }

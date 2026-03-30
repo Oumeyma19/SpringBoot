@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import tn.esprit.ds.championnat.entites.Sponsor;
 
 public interface SponsorRepository extends JpaRepository<Sponsor , Long> {
+    Sponsor findByName(String Nom);
+
 }

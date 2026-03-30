@@ -1,10 +1,20 @@
 package tn.esprit.ds.championnat.entites;
 
 import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Championnat {
 
     @Id
@@ -20,8 +30,12 @@ public class Championnat {
     @OneToOne(mappedBy = "championnat")
     private DetailChampionnat detailChampionnat;
 
-    @ManyToMany
-    private List<Course> courses;
+    @ManyToMany(cascade=CascadeType.ALL)
+    List<Course> courses;
 
 
+    public void setC(DetailChampionnat dt1) {
+        this.detailChampionnat=dt1;
+        dt1.setChampionnat(this);
+    }
 }
